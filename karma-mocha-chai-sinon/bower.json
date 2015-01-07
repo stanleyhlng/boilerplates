@@ -1,0 +1,16 @@
+{
+  "name": "karma-mocha-chai-sinon",
+  "version": "0.0.1",
+  "homepage": "https://github.com/stanleyhlng/boilerplates",
+  "authors": [
+    "Stanley Ng <stanleyhlng@yahoo.com.hk>"
+  ],
+  "description": "JavaScript Application Boilerpate",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "mocha": "~2.1.0",
+    "chai": "~1.10.0",
+    "sinon": "~1.12.2"
+  }
+}

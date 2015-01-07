@@ -177,3 +177,8 @@ For more information, see http://gruntjs.com/project-scaffolding
 
 * npm install grunt-contrib-watch --save-dev
 * npm install karma-phantomjs-launcher --save-dev
+
+* bower init
+* bower install mocha --save-dev
+* bower install chai --save-dev
+* bower install sinon --save-dev
