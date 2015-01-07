@@ -135,3 +135,45 @@ Chrome 39.0.2171 (Mac OS X 10.10.1) A test suite should fail FAILED
 	AssertionError: expected true to be false
 Chrome 39.0.2171 (Mac OS X 10.10.1): Executed 1 of 1 (1 FAILED) ERROR (0.007 secs / 0.002 secs)
 ```
+
+* npm install grunt --save-dev
+* npm install grunt-cli --save-dev
+* ./node_modules/.bin/grunt --version
+
+```
+grunt-cli v0.1.13
+grunt v0.4.5
+```
+* npm install grunt-init --save-dev
+* ./node_modules/.bin/grunt-init --version
+```
+grunt-init v0.3.2
+grunt v0.4.5
+
+* git clone https://github.com/gruntjs/grunt-init-gruntfile.git ~/.grunt-init/gruntfile
+* ./node_modules/.bin/grunt-init
+
+```
+Running "init" task
+
+A valid init template name must be specified.
+
+Available templates
+ gruntfile  Create a basic Gruntfile.
+     sauce  Creates a sample Sauce project, using Mocha and Grunt.
+
+Templates that exist in the /Users/stanleyn/.grunt-init directory may be run
+with "grunt-init TEMPLATE". Templates that exist in another location may be run
+with "grunt-init /path/to/TEMPLATE". A template is a directory that must
+contain, at the very minimum, a template.js file.
+
+For more information, see http://gruntjs.com/project-scaffolding
+```
+
+* ./node_modules/.bin/grunt-init gruntfile
+* npm install grunt-karma --save-dev
+* npm install grunt-contrib-jshint --save-dev
+* npm install jshint-stylish --save-dev
+
+* npm install grunt-contrib-watch --save-dev
+* npm install karma-phantomjs-launcher --save-dev
