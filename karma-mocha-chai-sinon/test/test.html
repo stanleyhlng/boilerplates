@@ -14,7 +14,7 @@
         <div id="mocha"></div>
         <script src="../bower_components/mocha/mocha.js"></script>
         <script src="../bower_components/chai/chai.js"></script>
-        <script src="../bower_components/sinon/lib/sinon.js"></script>
+        <script src="../bower_components/sinon-browser-only/sinon.js"></script>
         <script>
         // The setup
         var expect = chai.expect;
@@ -25,5 +25,7 @@
             mocha.run();
         };
         </script>
+        <script src="js/spec/hello.spec.js"></script>
+        <script src="js/spec/timing.spec.js"></script>
     </body>
 </html>
