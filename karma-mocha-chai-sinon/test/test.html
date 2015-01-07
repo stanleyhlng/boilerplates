@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="JavaScript Application Boilerplate.">
+        <meta name="author" content="Stanley Ng">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta property="og:title" content="JavaScript Application Boilerplate">
+        <title>Boilerplate - JavaScript Application</title>
+        <link rel="stylesheet" href="../bower_components/mocha/mocha.css" />
+    </head>
+    <body>
+        <div id="mocha"></div>
+        <script src="../bower_components/mocha/mocha.js"></script>
+        <script src="../bower_components/chai/chai.js"></script>
+        <script src="../bower_components/sinon/lib/sinon.js"></script>
+        <script>
+        // The setup
+        var expect = chai.expect;
+        mocha.setup('bdd');
+
+        // Run tests on window load event.
+        window.onload = function () {
+            mocha.run();
+        };
+        </script>
+    </body>
+</html>
