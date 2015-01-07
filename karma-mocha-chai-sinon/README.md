@@ -1,11 +1,11 @@
-1. mkdir <new_dir>
-2. cd <new_dir>
-3. npm init
-4. npm install mocha --save-dev
-5. npm install karam --save-dev
-6. npm install karam-mocha --save-dev
-7. npm install karam-chai --save-dev
-8. npm install karam-sinon --save-dev
+* mkdir <new_dir>
+* cd <new_dir>
+* npm init
+* npm install mocha --save-dev
+* npm install karam --save-dev
+* npm install karam-mocha --save-dev
+* npm install karam-chai --save-dev
+* npm install karam-sinon --save-dev
 
 ```
 {
@@ -31,13 +31,12 @@
 }
 ```
 
-9. ./node_modules/karma/bin/karma --version
-
+* ./node_modules/karma/bin/karma --version
 ```
 Karma version: 0.12.31
 ```
 
-10. ./node_modules/karam/bin/karam init
+* ./node_modules/karam/bin/karam init
 
 ```
 // Karma configuration
@@ -108,8 +107,8 @@ module.exports = function(config) {
 };
 ```
 
-11. mkdir -p src/test
-12. cat src/test/dummy.spec.js
+* mkdir -p src/test
+* cat src/test/dummy.spec.js
 
 ```
 describe('A test suite', function () {
@@ -129,7 +128,7 @@ describe('A test suite', function () {
 });
 ```
 
-13. ./node_modules/karma/bin/karma start karma.conf.js
+* ./node_modules/karma/bin/karma start karma.conf.js
 
 ```
 Chrome 39.0.2171 (Mac OS X 10.10.1) A test suite should fail FAILED
