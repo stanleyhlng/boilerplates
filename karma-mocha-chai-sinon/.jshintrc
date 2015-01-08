@@ -93,12 +93,14 @@
         "require"
     ],
     "globals"       : { // ** `false` = don't allow variable to be redefined locally
-        "define": false,
-        "require": false,
-        "describe": false,
-        "beforeEach": false,
         "afterEach": false,
+        "beforeEach": false,
+        "define": false,
+        "describe": false,
+        "expect": false,
         "it": false,
-        "expect": false
+        "mocha": false,
+        "require": false,
+        "sinon": false
     }
 }

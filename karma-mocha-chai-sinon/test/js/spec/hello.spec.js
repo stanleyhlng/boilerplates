@@ -1,3 +1,4 @@
+/* global hello */
 window.hello = function () {
     return "Hello World";
 };
@@ -12,7 +13,7 @@ describe("Trying out the test libaries", function () {
 
     describe("Sinon.JS", function () {
         it("should report spy called", function () {
-            var helloSpy = sinon.spy(window, 'hello');
+            var helloSpy = sinon.spy(window, "hello");
 
             expect(helloSpy.called).to.be.false;
             hello();
