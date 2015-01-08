@@ -182,3 +182,5 @@ For more information, see http://gruntjs.com/project-scaffolding
 * bower install mocha --save-dev
 * bower install chai --save-dev
 * bower install sinon --save-dev
+
+* bower install karam-coverage --save-dev
