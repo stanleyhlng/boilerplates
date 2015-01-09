@@ -12,21 +12,47 @@
     </head>
     <body>
         <div id="mocha"></div>
+
+        <!-- JavaScript Test Libraries -->
         <script src="../bower_components/mocha/mocha.js"></script>
         <script src="../bower_components/chai/chai.js"></script>
         <script src="../bower_components/sinon-browser-only/sinon.js"></script>
+
+        <!-- JavaScript Core Libraries -->
+        <script src="../bower_components/underscore/underscore-min.js"></script>
+        <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../bower_components/json2/json2.js"></script>
+        <script src="../bower_components/backbone/backbone.js"></script>
+        <script src="../bower_components/backbone.localStorage/backbone.localStorage-min.js"></script>
+        <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../bower_components/showdown/compressed/Showdown.min.js"></script>
+
+        <!-- JavaScript Application Libraries -->
+        <script src="../app/js/app/namespace.js"></script>
+        <script src="../app/js/app/config.js"></script>
+        <script src="../app/js/app/models/note.js"></script>
+
+        <!-- Set up Mocha and Chai -->
         <script>
         // The setup
         var expect = chai.expect;
-        mocha.setup('bdd');
+        mocha.setup({
+            ui: "bdd",
+            bail: false
+        });
 
         // Run tests on window load event.
         window.onload = function () {
-            mocha.run();
+            (window.mochaPhantomJS || mocha).run();
         };
         </script>
+
+        <!-- Include our specs -->
         <script src="js/spec/hello.spec.js"></script>
         <script src="js/spec/timing.spec.js"></script>
-        <script src="js/spec/failures.spec.js"></script
+        <script src="js/spec/failures.spec.js"></script>
+
+        <script src="js/spec/namespace.spec.js"></script>
+        <script src="js/spec/note.spec.js"></script>
     </body>
 </html>
