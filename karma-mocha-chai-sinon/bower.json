@@ -11,6 +11,12 @@
   "devDependencies": {
     "mocha": "~2.1.0",
     "chai": "~1.10.0",
-    "sinon-browser-only": "~1.12.1"
+    "sinon-browser-only": "~1.12.1",
+    "bootstrap": "~3.3.1",
+    "underscore": "~1.7.0",
+    "json2": "*",
+    "backbone": "~1.1.2",
+    "backbone.localStorage": "~1.1.15",
+    "showdown": "~0.3.4"
   }
 }

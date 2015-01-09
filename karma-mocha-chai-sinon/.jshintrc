@@ -94,6 +94,7 @@
     ],
     "globals"       : { // ** `false` = don't allow variable to be redefined locally
         "afterEach": false,
+        "App": false,
         "beforeEach": false,
         "define": false,
         "describe": false,
