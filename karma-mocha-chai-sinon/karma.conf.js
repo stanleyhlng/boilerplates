@@ -15,8 +15,10 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+        'bower_components/underscore/underscore-min.js',
+        'bower_components/backbone/backbone.js',
         'app/js/app/namespace.js',
-        'app/js/app/models/*.js',
+        'app/js/app/models/note.js',
         'test/js/**/*.spec.js'
     ],
 
@@ -64,5 +66,6 @@ module.exports = function(config) {
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: true
+
   });
 };
