@@ -1,5 +1,6 @@
 // Karma configuration
 // Generated on Tue Jan 06 2015 20:37:11 GMT-0800 (PST)
+// http://karma-runner.github.io/0.8/config/configuration-file.html
 
 module.exports = function(config) {
   config.set({
@@ -15,8 +16,11 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+        // JavaScript Core Libaries
         'bower_components/underscore/underscore-min.js',
         'bower_components/backbone/backbone.js',
+
+        // JavaScript Application Libaries
         'app/js/app/namespace.js',
         'app/js/app/models/note.js',
         'test/js/**/*.spec.js'

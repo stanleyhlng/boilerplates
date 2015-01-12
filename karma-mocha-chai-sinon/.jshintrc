@@ -93,10 +93,12 @@
         "require"
     ],
     "globals"       : { // ** `false` = don't allow variable to be redefined locally
+        "after": false,
         "afterEach": false,
         "App": false,
-        "Backbone": false,
         "app": false,
+        "Backbone": false,
+        "before": false,
         "beforeEach": false,
         "define": false,
         "describe": false,
