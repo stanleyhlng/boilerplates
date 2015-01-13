@@ -19,10 +19,13 @@ module.exports = function(config) {
         // JavaScript Core Libaries
         'bower_components/underscore/underscore-min.js',
         'bower_components/backbone/backbone.js',
+        'bower_components/backbone.localStorage/backbone.localStorage-min.js',
 
         // JavaScript Application Libaries
         'app/js/app/namespace.js',
+        'app/js/app/config.js',
         'app/js/app/models/note.js',
+        'app/js/app/collections/notes.js',
         'test/js/**/*.spec.js'
     ],
 
