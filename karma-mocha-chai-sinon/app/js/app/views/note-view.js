@@ -1,28 +1,30 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  // Note View Pane
-  // --------------
-  // Render a single note pane for viewing.
-  App.Views.NoteView = Backbone.View.extend({
+    // Note View Pane
+    // --------------
+    // Render a single note pane for viewing.
+    App.Views.NoteView = Backbone.View.extend({
 
-    template: _.template(App.Templates["template-note-view"]),
+        template: _.template(App.Templates["template-note-view"]),
 
-    converter: new Showdown.converter(),
+        converter: new Showdown.converter(),
 
-    initialize: function () {
-      this.listenTo(this.model, "change", this.render);
-      this.listenTo(this.model, "destroy", this.remove);
-      this.render();
-    },
+        initialize: function () {
 
-    // Convert note data into Markdown.
-    render: function () {
-      this.$el.html(this.template({
-        title: this.model.get("title"),
-        text: this.converter.makeHtml(this.model.get("text"))
-      }));
-      return this;
-    }
-  });
+            this.listenTo(this.model, "change", this.render);
+            this.listenTo(this.model, "destroy", this.remove);
+            this.render();
+        },
+
+        // Convert note data into Markdown.
+        render: function () {
+            this.$el.html(this.template({
+                title: this.model.get("title"),
+                text: this.converter.makeHtml(this.model.get("text"))
+            }));
+            return this;
+        }
+
+    });
 }());

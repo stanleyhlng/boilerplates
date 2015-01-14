@@ -106,6 +106,7 @@
         "it": false,
         "mocha": false,
         "require": false,
-        "sinon": false
+        "sinon": false,
+        "$": false
     }
 }

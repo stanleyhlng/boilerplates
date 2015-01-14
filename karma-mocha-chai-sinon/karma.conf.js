@@ -11,21 +11,26 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'chai', 'sinon'],
+    frameworks: ['mocha', 'chai', 'sinon', 'fixture'],
 
 
     // list of files / patterns to load in the browser
     files: [
         // JavaScript Core Libaries
         'bower_components/underscore/underscore-min.js',
+        'bower_components/jquery/dist/jquery.min.js',
         'bower_components/backbone/backbone.js',
         'bower_components/backbone.localStorage/backbone.localStorage-min.js',
+        'bower_components/showdown/compressed/Showdown.min.js',
 
         // JavaScript Application Libaries
         'app/js/app/namespace.js',
         'app/js/app/config.js',
         'app/js/app/models/note.js',
         'app/js/app/collections/notes.js',
+        'app/js/app/templates/templates.js',
+        'app/js/app/views/note-view.js',
+
         'test/js/**/*.spec.js'
     ],
 

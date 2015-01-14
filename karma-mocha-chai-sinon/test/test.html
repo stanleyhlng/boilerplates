@@ -13,6 +13,9 @@
     <body>
         <div id="mocha"></div>
 
+        <!-- Test Fixtures -->
+        <div id="fixtures" style="display: none; visibility: hidden;"></div>
+
         <!-- JavaScript Test Libraries -->
         <script src="../bower_components/mocha/mocha.js"></script>
         <script src="../bower_components/chai/chai.js"></script>
@@ -39,6 +42,8 @@
         </script>
         <script src="../app/js/app/models/note.js"></script>
         <script src="../app/js/app/collections/notes.js"></script>
+        <script src="../app/js/app/templates/templates.js"></script>
+        <script src="../app/js/app/views/note-view.js"></script>
 
         <!-- Set up Mocha and Chai -->
         <script>
@@ -63,6 +68,7 @@
         <script src="js/spec/bdd.spec.js"></script>
         <script src="js/spec/models/note.spec.js"></script>
         <script src="js/spec/collections/notes.spec.js"></script>
+        <script src="js/spec/views/note-view.spec.js"></script>
 
     </body>
 </html>
