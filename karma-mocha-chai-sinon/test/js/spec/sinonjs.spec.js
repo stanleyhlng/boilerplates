@@ -38,6 +38,7 @@ describe("Sinon.JS", function () {
         });
 
         it ("calls spy wrapper on function", function () {
+            // Function spies
             var divide = function (a, b) {
                     return a/b;
                 },
@@ -52,6 +53,39 @@ describe("Sinon.JS", function () {
 
             // Sinon.JS doesn't have assert for returned.
             expect(divAndSpy.returned(2)).to.be.true;
+        });
+
+        it("calls spy on wrapped object", function () {
+            // Object method spies
+            var obj = {
+                multiply: function (a, b) {
+                    return a * b;
+                },
+                error: function (msg) {
+                    throw new Error(msg);
+                }
+            };
+
+            // Wrap members with `sinon` diretly.
+            sinon.spy(obj, "multiply");
+            sinon.spy(obj, "error");
+
+            expect(obj.multiply(5, 2)).to.equal(10);
+            sinon.assert.calledWith(obj.multiply, 5, 2);
+            expect(obj.multiply.returned(10)).to.be.true;
+
+            try {
+                obj.error("Foo");
+            }
+            catch (e) {
+            }
+
+            sinon.assert.threw(obj.error, "Error");
+
+            // Have to restore after tests finish.
+            obj.multiply.restore();
+            obj.error.restore();
+
         });
 
     });
