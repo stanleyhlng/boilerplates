@@ -80,6 +80,8 @@
     "wsh"           : false,    // Windows Scripting Host
     "yui"           : false,    // Yahoo User Interface
 
+    "-W117"         : true,     // Ignore `not defined` errors as an example of using a rule (W117) by code
+
     // Legacy ** According to jshint docs, these options are NOT to be used or relied on. Removing them.
     //"nomen"         : false,    // true: Prohibit dangling `_` in variables
     //"onevar"        : false,    // true: Allow only one `var` statement per function
