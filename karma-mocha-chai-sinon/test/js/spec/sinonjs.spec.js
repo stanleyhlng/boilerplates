@@ -36,7 +36,24 @@ describe("Sinon.JS", function () {
             sinon.assert.callCount(spy, 1);
             sinon.assert.calledWith(spy, 42);
         });
-        
+
+        it ("calls spy wrapper on function", function () {
+            var divide = function (a, b) {
+                    return a/b;
+                },
+                divAndSpy = sinon.spy(divide);
+
+            // call wrapped function and verify result.
+            expect(divAndSpy(4, 2)).to.equal(2);
+
+            // Now, verify spy properties.
+            sinon.assert.calledOnce(divAndSpy);
+            sinon.assert.calledWith(divAndSpy, 4, 2);
+
+            // Sinon.JS doesn't have assert for returned.
+            expect(divAndSpy.returned(2)).to.be.true;
+        });
+
     });
 
 });
