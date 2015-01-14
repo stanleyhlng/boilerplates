@@ -24,6 +24,19 @@ describe("Sinon.JS", function () {
 
         });
 
+        it("verifies anonymous spy on event", function () {
+            // Spy assertions
+            var eventer = _.extend({}, Backbone.Events),
+                spy = sinon.spy();
+
+            eventer.on("foo", spy);
+            sinon.assert.notCalled(spy);
+
+            eventer.trigger("foo", 42);
+            sinon.assert.callCount(spy, 1);
+            sinon.assert.calledWith(spy, 42);
+        });
+        
     });
 
 });
