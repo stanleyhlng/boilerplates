@@ -7,7 +7,7 @@ describe("App.Views.NoteView", function () {
 
     beforeEach(function () {
         // Empty out and rebind the fixture for each test.
-        this.$fixture.empty().appendTo($("#fixtures"));
+        this.$fixture.empty().appendTo($("body"));
 
         // New default model and view for each test.
         //
