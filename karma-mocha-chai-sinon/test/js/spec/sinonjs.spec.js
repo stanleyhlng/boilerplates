@@ -55,16 +55,17 @@ describe("Sinon.JS", function () {
             expect(divAndSpy.returned(2)).to.be.true;
         });
 
+        var obj = {
+            multiply: function (a, b) {
+                return a * b;
+            },
+            error: function (msg) {
+                throw new Error(msg);
+            }
+        };
+
         it("calls spy on wrapped object", function () {
             // Object method spies
-            var obj = {
-                multiply: function (a, b) {
-                    return a * b;
-                },
-                error: function (msg) {
-                    throw new Error(msg);
-                }
-            };
 
             // Wrap members with `sinon` diretly.
             sinon.spy(obj, "multiply");
@@ -88,6 +89,41 @@ describe("Sinon.JS", function () {
 
         });
 
+        it("calls spy with test helper", sinon.test(function () {
+
+            // Wrap members using context (`this`) helper.
+            this.spy(obj, "multiply");
+            this.spy(obj, "error");
+
+            expect(obj.multiply(5, 2)).to.equal(10);
+            sinon.assert.calledWith(obj.multiply, 5, 2);
+            expect(obj.multiply.returned(10)).to.be.true;
+
+            try {
+                obj.error("Foo");
+            }
+            catch (e) {
+            }
+            sinon.assert.threw(obj.error, "Error");
+
+            // No restore is necessary.
+        }));
+
+        it("calls spy with chai plugin", sinon.test(function () {
+            this.spy(obj, "multiply");
+            this.spy(obj, "error");
+
+            expect(obj.multiply(5, 2)).to.equal(10);
+            expect(obj.multiply).to.have.been.calledWith(5, 2);
+            expect(obj.multiply).to.have.returned(10);
+
+            try {
+                obj.error("Foo");
+            }
+            catch (e) {
+            }
+            expect(obj.error).to.have.thrown("Error");
+        }));
     });
 
 });
