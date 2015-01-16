@@ -11,14 +11,15 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'chai', 'sinon', 'chai-sinon'],
+    frameworks: ['mocha', 'chai', 'sinon', 'chai-sinon', 'fixture'],
 
 
     // list of files / patterns to load in the browser
     files: [
+        // dependencies
         // JavaScript Core Libaries
-        'bower_components/underscore/underscore-min.js',
-        'bower_components/jquery/dist/jquery.min.js',
+        'bower_components/underscore/underscore.js',
+        'bower_components/jquery/dist/jquery.js',
         'bower_components/backbone/backbone.js',
         'bower_components/backbone.localStorage/backbone.localStorage-min.js',
         'bower_components/showdown/compressed/Showdown.min.js',
@@ -30,8 +31,12 @@ module.exports = function(config) {
         'app/js/app/collections/notes.js',
         'app/js/app/templates/templates.js',
         'app/js/app/views/note-view.js',
+        'app/js/app/views/note-nav.js',
 
-        'test/js/**/*.spec.js'
+        'test/js/**/*.spec.js',
+
+        // fixtures
+        {pattern: 'test/js/spec/fixtures/**/*', watched: true, served: true, include: false}
     ],
 
 
@@ -43,7 +48,9 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-        'app/js/**/*.js': ['coverage']
+        'app/js/**/*.js': ['coverage'],
+        'test/js/spec/fixtures/**/*.html': ['html2js'],
+        'test/js/spec/fixtures/**/*.json': ['html2js']
     },
 
 
@@ -72,7 +79,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['PhantomJS', 'Chrome'],
 
 
     // Continuous Integration mode
