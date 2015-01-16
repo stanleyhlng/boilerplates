@@ -49,6 +49,66 @@ describe("Sinon.JS", function () {
             });
         });
 
+        describe("Testing Backbone.js component with stubs", function () {
+
+            var MyView = Backbone.View.extend({
+
+                initialize: function () {
+                    this.on('wrapped', function () {
+                        this.foo();
+                    });
+                    this.on('unwrapped', this.foo);
+                },
+
+                foo: function () {
+                    return "I'm real.";
+                }
+
+            });
+
+            it("stubs after initialization", sinon.test(function () {
+                var myView = new MyView();
+
+                // Stub prototype **after** initialization.
+                // Equivalent to:
+                // this.stub(myView, "foo").returns("I'm fake.");
+                this.stub(MyView.prototype, "foo").returns("I'm fake.");
+
+                // The wrapped version calls the **stub**
+                myView.foo.reset();
+                myView.trigger("wrapped");
+                expect(myView.foo)
+                    .to.be.calledOnce.and
+                    .to.have.returned("I'm fake.");
+
+                // However, the unwrapped version calls the **real** function.
+                myView.foo.reset();
+                myView.trigger("unwrapped");
+                expect(myView.foo).to.not.be.called;
+            }));
+
+            it("stubs before initialization", sinon.test(function () {
+                // Stub prototype **before** initialziation.
+                this.stub(MyView.prototype, "foo").returns("I'm fake.");
+
+                var myView = new MyView();
+
+                // Now, both versions are correctly stubbed.
+                myView.foo.reset();
+                myView.trigger("wrapped");
+                expect(myView.foo)
+                    .to.be.calledOnce.and
+                    .to.have.returned("I'm fake.");
+
+                myView.foo.reset();
+                myView.trigger("unwrapped");
+                expect(myView.foo)
+                    .to.be.calledOnce.and
+                    .to.have.returned("I'm fake.");
+            }));
+
+        });
+
     });
 
 });
