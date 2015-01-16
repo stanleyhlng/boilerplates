@@ -34,6 +34,7 @@ module.exports = function(config) {
         'app/js/app/views/note-nav.js',
         'app/js/app/views/note.js',
         'app/js/app/views/notes-item.js',
+        'app/js/app/routers/router.js',
 
         'test/js/**/*.spec.js',
 
