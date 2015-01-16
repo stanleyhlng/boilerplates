@@ -2,7 +2,7 @@ describe("App.Views.NoteNav", function () {
 
     before(function () {
         // Set the minimum HTML that we will need to produce a menu bar list.
-        if (!window) {
+        if (typeof fixture !== 'undefined') {
             // KARMA
             fixture.base = 'test/js/spec/fixtures';
             this.$fixture = $(fixture.load('note-nav.html'));
@@ -21,8 +21,10 @@ describe("App.Views.NoteNav", function () {
     });
 
     beforeEach(function () {
-        if (!window) {
+        if (typeof fixture !== 'undefined') {
             // KARMA
+            // fixture.cleanUp();
+            // fixture.clearCache();
         }
         else {
             // BROWSER
@@ -39,10 +41,8 @@ describe("App.Views.NoteNav", function () {
 
 
     after(function () {
-        if (!window) {
+        if (typeof fixture !== 'undefined') {
             // KARMA
-            fixture.cleanUp();
-            fixture.clearCache();
         }
         else {
             // BROWSER
