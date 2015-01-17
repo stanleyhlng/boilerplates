@@ -19,6 +19,8 @@
     "backbone.localStorage": "~1.1.15",
     "showdown": "~0.3.4",
     "requirejs": "~2.1.15",
-    "sinon-chai": "~2.6.0"
+    "sinon-chai": "~2.6.0",
+    "blanket": "~1.1.5",
+    "mocha-blanketjs-adapter": "~1.0.0"
   }
 }

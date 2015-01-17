@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="JavaScript Application Boilerplate.">
+        <meta name="author" content="Stanley Ng">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta property="og:title" content="JavaScript Application Boilerplate">
+        <title>Boilerplate - JavaScript Application</title>
+        <link rel="stylesheet" href="../bower_components/mocha/mocha.css" />
+    </head>
+    <body>
+        <div id="blanket-main" class="hidden" style="display:none"></div>
+        <div id="mocha"></div>
+
+        <!-- Test Fixtures -->
+        <div id="fixtures" style="display: none; visibility: hidden;"></div>
+
+        <!-- JavaScript Test Libraries -->
+        <script src="../bower_components/mocha/mocha.js"></script>
+        <script src="../bower_components/chai/chai.js"></script>
+        <script src="../bower_components/sinon-browser-only/sinon.js"></script>
+        <script src="../bower_components/sinon-chai/lib/sinon-chai.js"></script>
+
+        <!-- JavaScript Core Libraries -->
+        <script src="../bower_components/underscore/underscore-min.js"></script>
+        <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../bower_components/json2/json2.js"></script>
+        <script src="../bower_components/backbone/backbone.js"></script>
+        <script src="../bower_components/backbone.localStorage/backbone.localStorage-min.js"></script>
+        <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../bower_components/showdown/compressed/Showdown.min.js"></script>
+
+        <!-- JavaScript Coverage Libraries -->
+        <script src="../bower_components/blanket/dist/qunit/blanket.min.js"
+            data-cover-adapter="../bower_components/mocha-blanketjs-adapter/mocha-blanket.js"></script>
+
+        <!-- JavaScript Application Libraries -->
+        <script src="../app/js/app/namespace.js"></script>
+        <script src="../app/js/app/config.js"></script>
+        <script>
+            // Test overrides (before any app components)
+            /* jshint -W117 */
+            App.Config = _.extend(App.Config, {
+                storeName: "notes-test" // localStorage for tests.
+            });
+        </script>
+        <script src="../app/js/app/models/note.js" data-cover></script>
+        <script src="../app/js/app/collections/notes.js" data-cover></script>
+        <script src="../app/js/app/templates/templates.js" data-cover></script>
+        <script src="../app/js/app/views/note-view.js"></script>
+        <script src="../app/js/app/views/note-nav.js"></script>
+        <script src="../app/js/app/views/note.js"></script>
+        <script src="../app/js/app/views/notes-item.js"></script>
+        <script src="../app/js/app/routers/router.js"></script>
+
+        <!-- Set up Mocha and Chai -->
+        <script>
+        // The setup
+        var expect = chai.expect;
+        mocha.setup({
+            ui: "bdd",
+            bail: false
+        });
+
+        // Set up Mocha with custom Blanket.js reportor.
+        mocha.reporter(function (_reporter) {
+            // Updated for Mocha 1.15.1 integration.
+            // See: https://github.com/alex-seville/blanket/pull/356
+            var blanketReporter = function (runner) {
+                // Listeners.
+                runner.on("start",  function () { blanket.setupCoverage(); });
+                runner.on("suite",  function () { blanket.onModuleStart(); });
+                runner.on("test",   function () { blanket.onTestStart(); });
+                runner.on("test end", function (test) {
+                    blanket.onTestDone(test.parent.tests.length,
+                        test.state === 'passed');
+                    });
+                    runner.on("end",    function () {
+                        blanket.onTestsDone();
+                        $("#blanket-main").removeClass("hidden").show("fast");
+                        $("html, body").animate({ scrollTop: 0 });
+                    });
+                    _reporter.call(this, runner);
+                };
+                blanketReporter.prototype = _reporter.prototype;
+                return blanketReporter;
+            }(mocha._reporter));
+
+        // Run tests on window load event.
+        // window.onload = function () {
+        //     (window.mochaPhantomJS || mocha).run();
+        // };
+        console.log(blanket);
+        blanket.beforeStartTestRunner({
+            callback: function () {
+                (window.mochaPhantomJS || mocha).run();
+            }
+        });
+        </script>
+
+        <!-- Include our specs -->
+        <script src="js/spec/hello.spec.js"></script>
+        <script src="js/spec/timing.spec.js"></script>
+        <script src="js/spec/failures.spec.js"></script>
+        <script src="js/spec/namespace.spec.js"></script>
+        <script src="js/spec/bdd.spec.js"></script>
+        <script src="js/spec/sinonjs-spies.spec.js"></script>
+        <script src="js/spec/sinonjs-stubs.spec.js"></script>
+        <script src="js/spec/sinonjs-mocks.spec.js"></script>
+        <script src="js/spec/models/note.spec.js"></script>
+        <script src="js/spec/collections/notes.spec.js"></script>
+        <script src="js/spec/views/note-view.spec.js"></script>
+        <script src="js/spec/views/note-nav.spec.js"></script>
+        <script src="js/spec/views/note.spec.js"></script>
+        <script src="js/spec/views/notes-item.spec.js"></script>
+        <script src="js/spec/routers/router.spec.js"></script>
+
+    </body>
+</html>
