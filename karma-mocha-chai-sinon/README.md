@@ -2,10 +2,10 @@
 * cd <new_dir>
 * npm init
 * npm install mocha --save-dev
-* npm install karam --save-dev
-* npm install karam-mocha --save-dev
-* npm install karam-chai --save-dev
-* npm install karam-sinon --save-dev
+* npm install karma --save-dev
+* npm install karma-mocha --save-dev
+* npm install karma-chai --save-dev
+* npm install karma-sinon --save-dev
 
 ```
 {
@@ -36,7 +36,7 @@
 Karma version: 0.12.31
 ```
 
-* ./node_modules/karam/bin/karam init
+* ./node_modules/karma/bin/karma init
 
 ```
 // Karma configuration
@@ -183,4 +183,4 @@ For more information, see http://gruntjs.com/project-scaffolding
 * bower install chai --save-dev
 * bower install sinon --save-dev
 
-* bower install karam-coverage --save-dev
+* bower install karma-coverage --save-dev
